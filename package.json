@@ -1,0 +1,38 @@
+{
+  "name": "koa-apigateway-auth",
+  "version": "1.0.0",
+  "description": "Adds user state from AWS API Gateway authorizer",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=8.0"
+  },
+  "exports": {
+    ".": {
+      "require": "./src/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./": "./"
+  },
+  "scripts": {
+    "build": "gen-esm-wrapper . ./dist/koa.mjs",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/DeltaByte/koa-apigateway-auth.git"
+  },
+  "author": "DeltaByte (https://gitlab.com/deltabyte)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/DeltaByte/koa-apigateway-auth/issues"
+  },
+  "homepage": "https://gitlab.com/DeltaByte/koa-apigateway-auth#readme",
+  "dependencies": {
+    "ramda": "^0.27.0"
+  },
+  "devDependencies": {
+    "esm": "^3.2.25",
+    "gen-esm-wrapper": "^1.1.0",
+    "koa": "^2.13.0"
+  }
+}

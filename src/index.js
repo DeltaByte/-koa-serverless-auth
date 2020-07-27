@@ -1,5 +1,5 @@
 import { lensPath, view } from 'ramda'
-import config from './config'
+import settings from './config'
 
 /**
  * @constant {R.lensPath} authorizerLens
@@ -13,18 +13,18 @@ const authorizerLens = lensPath(['req', 'requestContext', 'authorizer', 'jwt'])
  * @param {import('koa').Next} next
  */
 const middleware = async (ctx, next) => {
-  if (process.env.NODE_ENV === 'local') {
-    Object.assign(ctx.state, { userId: '000000000', name: 'Example User' })
+  if (settings.localEnv && process.env.NODE_ENV === 'local') {
+    ctx.state[settings.bindTo] = settings.exampleUser
     await next()
     return
   }
 
   const authorizer = view(authorizerLens, ctx)
-  if (!authorizer) ctx.throw(config.errors.authorizer.code, config.errors.authorizer.message)
+  if (!authorizer) ctx.throw(settings.errors.authorizer.code, settings.errors.authorizer.message)
 
   const claims = authorizer.claims
-  if (!claims) ctx.throw(config.errors.claims.code, config.errors.claims.message)
-  ctx.state[config.bindTo] = provider(authorizer)
+  if (!claims) ctx.throw(settings.errors.claims.code, settings.errors.claims.message)
+  ctx.state[settings.bindTo] = provider(authorizer)
 
   const scopes = authorizer.scopes
   if (scopes) ctx.state.scopes = scopes
@@ -32,7 +32,7 @@ const middleware = async (ctx, next) => {
   await next()
 }
 
-export default (overrideConfig) => {
-  Object.assign(config, overrideConfig)
+export default (config) => {
+  Object.assign(settings, config)
   return middleware
 }

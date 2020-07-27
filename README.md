@@ -7,13 +7,14 @@ Currently the only supported gateways are the AWS ones.
 
 ## Options
 
-| Name             | Type    | Default | Description                                        |
-| ---------------- | ------- | ------- | -------------------------------------------------- |
-| bindTo           | String  | `auth`  | Context state key to store the auth object against |
-| localEnv         | Boolean | `true`  | Apply fake user data if `NODE_ENV` is `local`      |
-| errors           | Object  |         | Error messages                                     |
-| errors.?.code    | Number  |         | HTTP status code                                   |
-| errors.?.message | String  |         | Response message                                   |
+| Name             | Type    | Default                                         | Description                                                  |
+| ---------------- | ------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| bindTo           | String  | `auth`                                          | Context state key to store the auth object against           |
+| errors           | Object  |                                                 | Error messages                                               |
+| errors.?.code    | Number  |                                                 | HTTP status code                                             |
+| errors.?.message | String  |                                                 | Response message                                             |
+| localEnv         | Boolean | `true`                                          | Apply fake user data if `NODE_ENV` is `local`                |
+| fakeUser         | Object  | `{ userId: '000000000', name: 'Example User' }` | Fake auth object that will be applied if runing in local env |
 
 ### Errors
 

@@ -1,33 +1,24 @@
 {
-  "name": "koa-apigateway-auth",
-  "version": "1.0.0",
+  "name": "koa-serverless-auth",
+  "version": "0.1.0",
   "description": "Adds user state from AWS API Gateway authorizer",
   "main": "src/index.js",
   "engines": {
-    "node": ">=8.0"
-  },
-  "exports": {
-    ".": {
-      "require": "./src/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./": "./"
+    "node": ">=14.0"
   },
   "scripts": {
-    "build": "gen-esm-wrapper . ./dist/koa.mjs",
-    "prepare": "npm run build",
     "lint": "eslint --ext .js --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/DeltaByte/koa-apigateway-auth.git"
+    "url": "git+https://gitlab.com/DeltaByte/koa-serverless-auth.git"
   },
   "author": "DeltaByte (https://gitlab.com/deltabyte)",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/DeltaByte/koa-apigateway-auth/issues"
+    "url": "https://gitlab.com/DeltaByte/koa-serverless-auth/issues"
   },
-  "homepage": "https://gitlab.com/DeltaByte/koa-apigateway-auth#readme",
+  "homepage": "https://gitlab.com/DeltaByte/koa-serverless-auth#readme",
   "dependencies": {
     "ramda": "^0.27.0"
   },
@@ -40,7 +31,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "esm": "^3.2.25",
-    "gen-esm-wrapper": "^1.1.0",
     "koa": "^2.13.0",
     "prettier": "2.0.5"
   }

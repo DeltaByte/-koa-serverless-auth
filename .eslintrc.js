@@ -6,12 +6,12 @@ module.exports = {
   extends: [
     'standard',
     'prettier',
-    'prettier/standard'
+    'prettier/standard',
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaVersion: 11,
     sourceType: 'module'
   },
-  rules: {
-  }
+  plugins: ['prettier']
 }

@@ -26,11 +26,18 @@ const middleware = async (ctx, next) => {
 
   // parse oauth from request
   const authorizer = view(authorizerLens, ctx)
-  if (!authorizer) ctx.throw(settings.errors.authorizer.code, settings.errors.authorizer.message)
+  if (!authorizer) {
+    ctx.throw(
+      settings.errors.authorizer.code,
+      settings.errors.authorizer.message
+    )
+  }
 
   // parse claims to user profile data
   const claims = authorizer.claims
-  if (!claims) ctx.throw(settings.errors.claims.code, settings.errors.claims.message)
+  if (!claims) {
+    ctx.throw(settings.errors.claims.code, settings.errors.claims.message)
+  }
   ctx.state[settings.bindTo] = provider(authorizer)
 
   // copy scopes to auth

@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/DeltaByte/koa-serverless-auth.git"
+    "url": "git+https://github.com/DeltaByte/koa-serverless-auth.git"
   },
-  "author": "DeltaByte (https://gitlab.com/deltabyte)",
+  "author": "DeltaByte (https://github.com/deltabyte)",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/DeltaByte/koa-serverless-auth/issues"
+    "url": "https://github.com/DeltaByte/koa-serverless-auth/issues"
   },
-  "homepage": "https://gitlab.com/DeltaByte/koa-serverless-auth#readme",
+  "homepage": "https://github.com/DeltaByte/koa-serverless-auth#readme",
   "dependencies": {
     "ramda": "^0.27.0"
   },
